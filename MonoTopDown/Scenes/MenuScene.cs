@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
+using MonoTopDown.Images;
 
 namespace MonoTopDown.Scenes
 {
     class MenuScene: BaseScene
     {
+        
+
         public MenuScene()
         {
             Name = "mainmenu";
@@ -15,7 +18,8 @@ namespace MonoTopDown.Scenes
 
         public override void Draw(Microsoft.Xna.Framework.GameTime time)
         {
-            
+            var texture = new DrawTexture(ImagesManager.GetTexture("image"));
+            texture.Draw(spriteBatch, Vector2.Zero, Color.White, 0f);
         }
     }
 }

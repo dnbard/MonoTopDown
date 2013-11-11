@@ -1,0 +1,4 @@
+﻿{	
+	'pathConfig': 'Content/config.json',
+	'pathFrames': 'Content/frames.json'
+}

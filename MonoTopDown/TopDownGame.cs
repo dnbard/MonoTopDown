@@ -7,7 +7,9 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Storage;
 using Microsoft.Xna.Framework.GamerServices;
+using MonoTopDown.Model.Utils;
 using MonoTopDown.Scenes;
+using MonoTopDown.Utils;
 
 #endregion
 
@@ -20,17 +22,23 @@ namespace MonoTopDown
     {
         private GraphicsDeviceManager graphics;
         public static SpriteBatch SpriteBatch { get; set; }
+        private Settings settings = Settings.Load(Resources.Get("pathConfig"));
 
         public TopDownGame()
             : base()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+
+            graphics.PreferredBackBufferWidth = settings.Width;
+            graphics.PreferredBackBufferHeight = settings.Height;
+            graphics.ApplyChanges();
         }
 
         protected override void Initialize()
         {
             base.Initialize();
+
             SceneManager.Activate(new MenuScene());
         }
 

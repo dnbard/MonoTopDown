@@ -36,12 +36,19 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="GUI\BaseGUIComponent.cs" />
+    <Compile Include="Images\DrawTexture.cs" />
+    <Compile Include="Images\ImagesManager.cs" />
+    <Compile Include="Model\ImageFrame.cs" />
+    <Compile Include="Model\Utils\Settings.cs" />
     <Compile Include="Scenes\MenuScene.cs" />
     <Compile Include="TopDownGame.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scenes\BaseScene.cs" />
     <Compile Include="Scenes\SceneManager.cs" />
+    <Compile Include="Utils\Enums.cs" />
+    <Compile Include="Utils\JSON.cs" />
+    <Compile Include="Utils\Resources.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
@@ -54,15 +61,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\images\image.png" />
     <Content Include="Icon.ico" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Content\" />
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="Content\config.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\frames.json" />
+    <None Include="Content\strings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy $(ProjectDir)Content\* $(TargetDir)\Content\</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

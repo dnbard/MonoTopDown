@@ -1,0 +1,51 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using MonoTopDown.Utils;
+
+namespace MonoTopDown.Images
+{
+    class DrawTexture
+    {
+        public Texture2D Texture { get; set; }
+        
+        public float Rotation { get; set; }
+        public float Scale { get; set; }
+        
+        public Rectangle Source { get; set; }
+        public Vector2 Origin { get; set; }
+
+        public void Draw(SpriteBatch batch, Vector2 position, Color overlay, float layer)
+        {
+            batch.Draw(Texture, 
+                position, 
+                Source, 
+                overlay, 
+                Rotation, 
+                Origin, 
+                Scale,
+                SpriteEffects.None, 
+                layer);
+        }
+
+        public DrawTexture(Texture2D texture, ImageSourcePosition position = ImageSourcePosition.LeftTop)
+        {
+            Texture = texture;
+            Rotation = 0f;
+            Scale = 1f;
+
+            Source = new Rectangle(0, 0, texture.Width, texture.Height);
+            Origin = position == ImageSourcePosition.Middle ? new Vector2((int)(texture.Width * 0.5f), (int)(texture.Height * 0.5f)) 
+                : Vector2.Zero;
+        }
+
+        public DrawTexture(Texture2D texture, string frameName, ImageSourcePosition position = ImageSourcePosition.LeftTop)
+            : this(texture, position)
+        {
+            
+        }
+    }
+}

@@ -6,9 +6,9 @@ using Microsoft.Xna.Framework;
 
 namespace MonoTopDown.GUI
 {
-    abstract class BaseGUIComponent:DrawableGameComponent
+    abstract class BaseGuiComponent:DrawableGameComponent
     {
-        protected BaseGUIComponent() : base(Program.Game)
+        protected BaseGuiComponent() : base(Program.Game)
         {
             
         }

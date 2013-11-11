@@ -11,6 +11,7 @@ namespace MonoTopDown.Scenes
     {
         private static SceneManager Instance = new SceneManager();
         private Game game = Program.Game;
+        private SpriteBatch spriteBatch = TopDownGame.SpriteBatch;
 
         private Dictionary<string, BaseScene> _scenes = new Dictionary<string, BaseScene>();
 
@@ -61,7 +62,10 @@ namespace MonoTopDown.Scenes
         {
             if (Instance.ActiveScene == null) return;
             Instance.game.GraphicsDevice.Clear(Color.Black);
+            
+            Instance.spriteBatch.Begin();
             Instance.ActiveScene.Draw(time);
+            Instance.spriteBatch.End();
         }
 
         public static void Update(GameTime time)
