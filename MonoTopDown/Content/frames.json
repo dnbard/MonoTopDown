@@ -1,6 +1,6 @@
 ﻿{
-	'image':[
-		{Top: 10, Left: 2, Width: 10, Height: 11, Name:'Default'},
-		{Top: 10}
-	]	
+	'image':{
+		'default': {Top: 10, Left: 2, Width: 40, Height: 60},
+		'another': {Top: 10}
+	}
 }

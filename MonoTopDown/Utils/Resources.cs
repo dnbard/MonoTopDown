@@ -14,5 +14,7 @@ namespace MonoTopDown.Utils
         {
             return Strings[key];
         }
+
+        public static string[] ImageExtensions = { ".png", ".jpg" };
     }
 }

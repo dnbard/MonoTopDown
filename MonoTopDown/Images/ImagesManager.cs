@@ -11,13 +11,11 @@ namespace MonoTopDown.Images
 {
     class ImagesManager
     {
-        static string[] imageExtensions = {".png", ".jpg"};
-
         private static Dictionary<string, Texture2D> Textures 
             = new Dictionary<string, Texture2D>();
 
-        private static Dictionary<string, List<ImageFrame>> Frames
-            = JSON.Deserialize<Dictionary<string, List<ImageFrame>>>(Resources.Get("pathFrames"));
+        private static readonly Dictionary<string, ImageFrameHolder> Frames
+            = JSON.Deserialize<Dictionary<string, ImageFrameHolder>>(Resources.Get("pathFrames"));
 
         public static Texture2D GetTexture(string name)
         {
@@ -32,17 +30,27 @@ namespace MonoTopDown.Images
 
         public static bool LoadTexture(string name)
         {
-            for (var i = 0; i < imageExtensions.Length; i++)
+            for (var i = 0; i < Resources.ImageExtensions.Length; i++)
             {
-                var path = name + imageExtensions[i];
+                var path = name + Resources.ImageExtensions[i];
                 if (File.Exists("Content/" + path))
                 {
-                    Textures.Add(name, Program.Game.Content.Load<Texture2D>(path));
+                    var texture = Program.Game.Content.Load<Texture2D>(path);
+                    texture.Name = name;
+                    Textures.Add(name, texture);
                     return true;
                 }
             }
 
             return false;
+        }
+
+        public static ImageFrame GetFrame(string textureName, string frameName)
+        {
+            var textureFrames = Frames[textureName];
+            if (textureFrames == null) return null;
+
+            return textureFrames[frameName];
         }
     }
 }

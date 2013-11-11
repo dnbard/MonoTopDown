@@ -9,8 +9,6 @@ namespace MonoTopDown.Scenes
 {
     class MenuScene: BaseScene
     {
-        
-
         public MenuScene()
         {
             Name = "mainmenu";
@@ -18,7 +16,7 @@ namespace MonoTopDown.Scenes
 
         public override void Draw(Microsoft.Xna.Framework.GameTime time)
         {
-            var texture = new DrawTexture(ImagesManager.GetTexture("image"));
+            var texture = new DrawTexture(ImagesManager.GetTexture("image"), "default");
             texture.Draw(spriteBatch, Vector2.Zero, Color.White, 0f);
         }
     }

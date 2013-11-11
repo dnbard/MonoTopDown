@@ -45,7 +45,13 @@ namespace MonoTopDown.Images
         public DrawTexture(Texture2D texture, string frameName, ImageSourcePosition position = ImageSourcePosition.LeftTop)
             : this(texture, position)
         {
-            
+            var textureKey = texture.Name;
+            var frame = ImagesManager.GetFrame(textureKey, frameName);
+
+            if (frame != null)
+            {
+                Source = new Rectangle(frame.Left, frame.Top, frame.Width, frame.Height);
+            }
         }
     }
 }

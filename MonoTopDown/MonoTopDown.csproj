@@ -47,6 +47,7 @@
     <Compile Include="Scenes\BaseScene.cs" />
     <Compile Include="Scenes\SceneManager.cs" />
     <Compile Include="Utils\Enums.cs" />
+    <Compile Include="Utils\ImagesUtils.cs" />
     <Compile Include="Utils\JSON.cs" />
     <Compile Include="Utils\Resources.cs" />
   </ItemGroup>
