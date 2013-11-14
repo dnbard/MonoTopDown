@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoTopDown.Utils;
 
@@ -13,7 +9,7 @@ namespace MonoTopDown.Images
         public Texture2D Texture { get; set; }
         
         public float Rotation { get; set; }
-        public float Scale { get; set; }
+        public Vector2 Scale { get; set; }
         
         public Rectangle Source { get; set; }
         public Vector2 Origin { get; set; }
@@ -35,7 +31,7 @@ namespace MonoTopDown.Images
         {
             Texture = texture;
             Rotation = 0f;
-            Scale = 1f;
+            Scale = Vector2.One;
 
             Source = new Rectangle(0, 0, texture.Width, texture.Height);
             Origin = position == ImageSourcePosition.Middle ? new Vector2((int)(texture.Width * 0.5f), (int)(texture.Height * 0.5f)) 

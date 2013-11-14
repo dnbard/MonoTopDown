@@ -36,6 +36,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="GUI\BaseGUIComponent.cs" />
+    <Compile Include="GUI\MouseCursor.cs" />
+    <Compile Include="GUI\StaticBackground.cs" />
     <Compile Include="Images\DrawTexture.cs" />
     <Compile Include="Images\ImagesManager.cs" />
     <Compile Include="Model\ImageFrame.cs" />
@@ -50,6 +52,7 @@
     <Compile Include="Utils\ImagesUtils.cs" />
     <Compile Include="Utils\JSON.cs" />
     <Compile Include="Utils\Resources.cs" />
+    <Compile Include="Utils\Viewport.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
@@ -78,7 +81,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy $(ProjectDir)Content\* $(TargetDir)\Content\</PostBuildEvent>
+    <PostBuildEvent>copy $(ProjectDir)Content\* $(TargetDir)Content\
+copy $(ProjectDir)Content\images\* $(TargetDir)Content\images\</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

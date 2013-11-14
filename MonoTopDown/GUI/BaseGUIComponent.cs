@@ -3,14 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
+using MonoTopDown.Images;
 
 namespace MonoTopDown.GUI
 {
     abstract class BaseGuiComponent:DrawableGameComponent
     {
+        public DrawTexture Texture { get; set; }
+        public Color Overlay { get; set; }
+        public float Layer { get; set; }
+
+        public Vector2 Position { get; set; }
+
         protected BaseGuiComponent() : base(Program.Game)
         {
-            
+            Overlay = Color.White;
+        }
+
+        public override void Draw(GameTime gameTime)
+        {
+            if (Texture != null)
+                Texture.Draw(TopDownGame.SpriteBatch, Position, Overlay, Layer);
         }
     }
 }

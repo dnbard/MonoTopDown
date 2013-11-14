@@ -17,6 +17,8 @@ namespace MonoTopDown.Scenes
 
         protected SpriteBatch spriteBatch;
 
+        protected List<IGameComponent> Components = new List<IGameComponent>();
+
         protected BaseScene() : base(Program.Game)
         {
             spriteBatch = TopDownGame.SpriteBatch;
@@ -32,14 +34,16 @@ namespace MonoTopDown.Scenes
             if (OnDeactivate != null) OnDeactivate(this, null);
         }
 
-        public virtual void Update(GameTime time)
+        public override void Update(GameTime time)
         {
-
+            foreach (IUpdateable component in Components.OfType<IUpdateable>())
+                component.Update(time);
         }
 
-        public virtual void Draw(GameTime time)
+        public override void Draw(GameTime time)
         {
-
+            foreach (IDrawable component in Components.OfType<IDrawable>())
+                component.Draw(time);
         }
 
         public virtual void DrawLighting(GameTime time)

@@ -4,16 +4,18 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using MonoTopDown.GUI;
 
 namespace MonoTopDown.Scenes
 {
     class SceneManager
     {
-        private static SceneManager Instance = new SceneManager();
-        private Game game = Program.Game;
-        private SpriteBatch spriteBatch = TopDownGame.SpriteBatch;
+        private static readonly SceneManager Instance = new SceneManager();
+        private readonly Game game = Program.Game;
+        private readonly SpriteBatch spriteBatch = TopDownGame.SpriteBatch;
 
-        private Dictionary<string, BaseScene> _scenes = new Dictionary<string, BaseScene>();
+        private readonly Dictionary<string, BaseScene> _scenes = new Dictionary<string, BaseScene>();
+        private readonly List<IGameComponent> _components = new List<IGameComponent>();
 
         public BaseScene ActiveScene { protected set; get; }
         public int Count
@@ -23,7 +25,7 @@ namespace MonoTopDown.Scenes
 
         protected SceneManager()
         {
-            
+            _components.Add(new MouseCursor(game));
         }
 
         public static void Add(BaseScene scene)
@@ -53,7 +55,7 @@ namespace MonoTopDown.Scenes
 
         public static void Activate(string sceneName)
         {
-            BaseScene scene = null;
+            BaseScene scene;
             Instance._scenes.TryGetValue(sceneName,out scene);
             if (scene != null) Activate(scene);
         }
@@ -64,6 +66,10 @@ namespace MonoTopDown.Scenes
             Instance.game.GraphicsDevice.Clear(Color.Black);
             
             Instance.spriteBatch.Begin();
+
+            foreach (IDrawable component in Instance._components.OfType<IDrawable>())
+                component.Draw(time);
+
             Instance.ActiveScene.Draw(time);
             Instance.spriteBatch.End();
         }
@@ -71,6 +77,10 @@ namespace MonoTopDown.Scenes
         public static void Update(GameTime time)
         {
             if (Instance.ActiveScene == null) return;
+
+            foreach (IUpdateable component in Instance._components.OfType<IUpdateable>())
+                component.Update(time);
+
             Instance.ActiveScene.Update(time);
         }
 
