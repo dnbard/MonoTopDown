@@ -7,7 +7,7 @@ using MonoTopDown.Images;
 
 namespace MonoTopDown.GUI
 {
-    abstract class BaseGuiComponent:DrawableGameComponent
+    class BaseGuiComponent:DrawableGameComponent
     {
         public DrawTexture Texture { get; set; }
         public Color Overlay { get; set; }
@@ -15,7 +15,7 @@ namespace MonoTopDown.GUI
 
         public Vector2 Position { get; set; }
 
-        protected BaseGuiComponent() : base(Program.Game)
+        public BaseGuiComponent() : base(Program.Game)
         {
             Overlay = Color.White;
         }

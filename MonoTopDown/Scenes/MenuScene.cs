@@ -16,7 +16,9 @@ namespace MonoTopDown.Scenes
             Name = "mainmenu";
 
             Components.Add(new StaticBackground()
-                {Texture = new DrawTexture(ImagesManager.GetTexture("images/mainmenu"))});
+                {Texture = new DrawTexture(ImagesManager.GetTexture("mainmenu"))});
+
+            Components.Add(new BaseGuiComponent(){Texture = new DrawTexture(ImagesManager.GetTexture("menu"), "logo")});
         }
 
         /*public override void Draw(Microsoft.Xna.Framework.GameTime time)

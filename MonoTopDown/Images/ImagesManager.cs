@@ -6,6 +6,7 @@ using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using MonoTopDown.Model;
 using MonoTopDown.Utils;
+using Microsoft.CSharp;
 
 namespace MonoTopDown.Images
 {
@@ -14,8 +15,8 @@ namespace MonoTopDown.Images
         private static Dictionary<string, Texture2D> Textures 
             = new Dictionary<string, Texture2D>();
 
-        private static readonly Dictionary<string, ImageFrameHolder> Frames
-            = JSON.Deserialize<Dictionary<string, ImageFrameHolder>>(Resources.Get("pathFrames"));
+        private static readonly Dictionary<string, Dictionary<string, ImageFrame>> Frames
+            = InitFrames();
 
         public static Texture2D GetTexture(string name)
         {
@@ -33,9 +34,9 @@ namespace MonoTopDown.Images
             for (var i = 0; i < Resources.ImageExtensions.Length; i++)
             {
                 var path = name + Resources.ImageExtensions[i];
-                if (File.Exists("Content/" + path))
+                if (File.Exists("Content/images/" + path))
                 {
-                    var texture = Program.Game.Content.Load<Texture2D>(path);
+                    var texture = Program.Game.Content.Load<Texture2D>("images/" + path);
                     texture.Name = name;
                     Textures.Add(name, texture);
                     return true;
@@ -51,6 +52,22 @@ namespace MonoTopDown.Images
             if (textureFrames == null) return null;
 
             return textureFrames[frameName];
+        }
+
+        private static Dictionary<string, Dictionary<string, ImageFrame>> InitFrames()
+        {
+            var result = new Dictionary<string, Dictionary<string, ImageFrame>>();
+
+            var res = JSON.Deserialize<Dictionary<string, string>>(Resources.Get("pathFrames"));
+            foreach (var re in res)
+            {
+                var json = JSON.Deserialize<ImageFrame[]>("Content/images/" + re.Value);
+                var holder = json.ToDictionary
+                    (e => ImagesUtils.ExtractKeyFromFilepath(e.Filename), e => e);
+                result.Add(ImagesUtils.ExtractKeyFromFilepath(re.Key), holder);
+            }
+
+            return result;
         }
     }
 }

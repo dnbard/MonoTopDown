@@ -82,7 +82,8 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>copy $(ProjectDir)Content\* $(TargetDir)Content\
-copy $(ProjectDir)Content\images\* $(TargetDir)Content\images\</PostBuildEvent>
+copy $(ProjectDir)Content\images\* $(TargetDir)Content\images\
+copy $(ProjectDir)Content\frames\* $(TargetDir)Content\frames\</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

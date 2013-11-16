@@ -13,7 +13,7 @@ namespace MonoTopDown.Utils
             {
                 if (path.Contains(imageExtension))
                 {
-                    path.Replace(imageExtension, "");
+                    path = path.Replace(imageExtension, "");
                     return path;
                 }
             }
