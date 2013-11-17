@@ -30,6 +30,7 @@ namespace MonoTopDown
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
+            this.IsFixedTimeStep = true;
             graphics.PreferredBackBufferWidth = settings.Width;
             graphics.PreferredBackBufferHeight = settings.Height;
             graphics.ApplyChanges();

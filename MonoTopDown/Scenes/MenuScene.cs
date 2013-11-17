@@ -30,6 +30,7 @@ namespace MonoTopDown.Scenes
             newGameButton.Texture = new DrawTexture(ImagesManager.GetTexture("menu"), "newgame0");
             newGameButton.HoverTexture = new DrawTexture(ImagesManager.GetTexture("menu"), "newgame1");
             newGameButton.Position = new Vector2(left, 300);
+            
             Components.Add(newGameButton);
 
             var quitButton = new GuiButton();
@@ -38,6 +39,24 @@ namespace MonoTopDown.Scenes
             quitButton.Position = new Vector2(left, newGameButton.Texture.Size.Y + newGameButton.Position.Y);
             quitButton.MouseLeftClick += (sender, args) => Program.Game.Exit();
             Components.Add(quitButton);
+
+            newGameButton.MouseLeftClick += (sender, args) =>
+            {
+                logo.isVisible = false;
+                newGameButton.isVisible = false;
+                quitButton.isVisible = false;
+                AddWaiting();
+            };
+        }
+
+        private void AddWaiting()
+        {
+            var center = Utils.Viewport.GetViewportCenter();
+
+            var waitLabel = new BaseGuiComponent();
+            waitLabel.Texture = new DrawTexture(ImagesManager.GetTexture("wait"), "waitsign");
+            waitLabel.Position = new Vector2(center.X - waitLabel.Texture.Size.X * 0.5f, center.Y - waitLabel.Texture.Size.Y * 0.5f);
+            Components.Add(waitLabel);
         }
     }
 }

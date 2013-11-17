@@ -58,13 +58,15 @@ namespace MonoTopDown.Images
         {
             var result = new Dictionary<string, Dictionary<string, ImageFrame>>();
 
-            var res = JSON.Deserialize<Dictionary<string, string>>(Resources.Get("pathFrames"));
-            foreach (var re in res)
+            var files = Directory.GetFiles("Content/images");
+            foreach (var file in files)
             {
-                var json = JSON.Deserialize<ImageFrame[]>("Content/images/" + re.Value);
+                if (Path.GetExtension(file) != ".json") continue;
+                var filename = Path.GetFileNameWithoutExtension(file);
+                var json = JSON.Deserialize<ImageFrame[]>(file);
                 var holder = json.ToDictionary
                     (e => ImagesUtils.ExtractKeyFromFilepath(e.Filename), e => e);
-                result.Add(ImagesUtils.ExtractKeyFromFilepath(re.Key), holder);
+                result.Add(ImagesUtils.ExtractKeyFromFilepath(filename), holder);
             }
 
             return result;

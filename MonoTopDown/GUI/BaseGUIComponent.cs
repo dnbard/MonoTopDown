@@ -20,6 +20,7 @@ namespace MonoTopDown.GUI
             get { return Texture == null ? Vector2.Zero : Texture.Size; }
         }
 
+        public bool isVisible { get; set; }
         protected bool isActive = false;
 
         private bool _isMouseIn = false;
@@ -30,11 +31,12 @@ namespace MonoTopDown.GUI
         public BaseGuiComponent() : base(Program.Game)
         {
             Overlay = Color.White;
+            isVisible = true;
         }
 
         public override void Draw(GameTime gameTime)
         {
-            if (TextureToDraw != null)
+            if (TextureToDraw != null && isVisible)
                 TextureToDraw.Draw(TopDownGame.SpriteBatch, Position, Overlay, Layer);
         }
 
@@ -43,7 +45,7 @@ namespace MonoTopDown.GUI
             var mouse = MouseManager.Instance;
             base.Update(gameTime);
 
-            if (isActive)
+            if (isActive && isVisible)
             {
                 if (MouseManager.IsMouseInRectangle(Position, Size))
                 {

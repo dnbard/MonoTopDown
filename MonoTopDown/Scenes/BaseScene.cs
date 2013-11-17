@@ -36,8 +36,11 @@ namespace MonoTopDown.Scenes
 
         public override void Update(GameTime time)
         {
-            foreach (IUpdateable component in Components.OfType<IUpdateable>())
-                component.Update(time);
+            for (int i = 0; i < Components.Count; i ++)
+            {
+                var component = Components[i] as IUpdateable;
+                if (component != null) component.Update(time);
+            }
         }
 
         public override void Draw(GameTime time)

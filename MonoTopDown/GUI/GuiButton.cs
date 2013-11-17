@@ -57,6 +57,8 @@ namespace MonoTopDown.GUI
 
         public override void Draw(Microsoft.Xna.Framework.GameTime gameTime)
         {
+            if (!isVisible) return;
+
             if (!FadeEffect)
                 base.Draw(gameTime);
             else

@@ -1,0 +1,8 @@
+[{
+	"filename": "indicator.png",
+	"frame": {"x":2,"y":2,"w":35,"h":35},
+},
+{
+	"filename": "waitsign.png",
+	"frame": {"x":39,"y":2,"w":683,"h":217},
+}]
