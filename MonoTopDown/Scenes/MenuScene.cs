@@ -18,13 +18,26 @@ namespace MonoTopDown.Scenes
             Components.Add(new StaticBackground()
                 {Texture = new DrawTexture(ImagesManager.GetTexture("mainmenu"))});
 
-            Components.Add(new BaseGuiComponent(){Texture = new DrawTexture(ImagesManager.GetTexture("menu"), "logo")});
-        }
+            var center = Utils.Viewport.GetViewportCenter();
 
-        /*public override void Draw(Microsoft.Xna.Framework.GameTime time)
-        {
-            var texture = new DrawTexture(ImagesManager.GetTexture("image"), "default");
-            texture.Draw(spriteBatch, Vector2.Zero, Color.White, 0f);
-        }*/
+            var logo = new BaseGuiComponent();
+            logo.Texture = new DrawTexture(ImagesManager.GetTexture("menu"), "logo");
+            var left = center.X - logo.Texture.Size.X*0.5f;
+            logo.Position = new Vector2(left, logo.Position.Y);
+            Components.Add(logo);
+
+            var newGameButton = new GuiButton();
+            newGameButton.Texture = new DrawTexture(ImagesManager.GetTexture("menu"), "newgame0");
+            newGameButton.HoverTexture = new DrawTexture(ImagesManager.GetTexture("menu"), "newgame1");
+            newGameButton.Position = new Vector2(left, 300);
+            Components.Add(newGameButton);
+
+            var quitButton = new GuiButton();
+            quitButton.Texture = new DrawTexture(ImagesManager.GetTexture("menu"), "quit0");
+            quitButton.HoverTexture = new DrawTexture(ImagesManager.GetTexture("menu"), "quit1");
+            quitButton.Position = new Vector2(left, newGameButton.Texture.Size.Y + newGameButton.Position.Y);
+            quitButton.MouseLeftClick += (sender, args) => Program.Game.Exit();
+            Components.Add(quitButton);
+        }
     }
 }

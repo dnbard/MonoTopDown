@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="GUI\BaseGUIComponent.cs" />
+    <Compile Include="GUI\GuiButton.cs" />
     <Compile Include="GUI\MouseCursor.cs" />
     <Compile Include="GUI\StaticBackground.cs" />
     <Compile Include="Images\DrawTexture.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="Utils\Enums.cs" />
     <Compile Include="Utils\ImagesUtils.cs" />
     <Compile Include="Utils\JSON.cs" />
+    <Compile Include="Utils\MouseManager.cs" />
     <Compile Include="Utils\Resources.cs" />
     <Compile Include="Utils\Viewport.cs" />
   </ItemGroup>

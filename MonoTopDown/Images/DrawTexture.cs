@@ -14,6 +14,11 @@ namespace MonoTopDown.Images
         public Rectangle Source { get; set; }
         public Vector2 Origin { get; set; }
 
+        public Vector2 Size
+        {
+            get { return new Vector2(Source.Width * Scale.X, Source.Height * Scale.Y); }
+        }
+
         public void Draw(SpriteBatch batch, Vector2 position, Color overlay, float layer)
         {
             batch.Draw(Texture, 

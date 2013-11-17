@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoTopDown.GUI;
+using MonoTopDown.Utils;
 
 namespace MonoTopDown.Scenes
 {
@@ -26,6 +27,7 @@ namespace MonoTopDown.Scenes
         protected SceneManager()
         {
             _components.Add(new MouseCursor(game));
+            _components.Add(new MouseManager());
         }
 
         public static void Add(BaseScene scene)

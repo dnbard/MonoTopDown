@@ -12,22 +12,13 @@ namespace MonoTopDown.Model
     [JsonObject(MemberSerialization.OptIn)]
     class ImageFrame
     {
-        private string _filename = "";
+        public ImageFrame()
+        {
+            Filename = "";
+        }
 
         [JsonProperty("filename", Required = Required.Always)]
-        public string Filename {
-            get { return _filename; }
-            set
-            {
-                var s = value;
-                /*if (!string.IsNullOrWhiteSpace(s))
-                {
-                    foreach (var ext in Resources.ImageExtensions)
-                        s = s.Replace(ext, "");
-                }*/
-                _filename = s;
-            }
-        }
+        public string Filename { get; set; }
 
         [JsonProperty("frame", Required = Required.Always)]
         private InternalFrame Frame { get; set; }

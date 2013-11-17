@@ -1,24 +1,21 @@
-[{
-	"filename": "bannerdown.png",
-	"frame": {"x":2,"y":2,"w":688,"h":560}
-},
+[
 {
 	"filename": "logo.png",
-	"frame": {"x":2,"y":564,"w":688,"h":232},	
+	"frame": {"x":2,"y":2,"w":688,"h":978},
 },
 {
 	"filename": "newgame0.png",
-	"frame": {"x":2,"y":798,"w":688,"h":96}
+	"frame": {"x":2,"y":982,"w":688,"h":96},	
 },
 {
 	"filename": "newgame1.png",
-	"frame": {"x":2,"y":896,"w":688,"h":96}
+	"frame": {"x":2,"y":1080,"w":688,"h":96},	
 },
 {
 	"filename": "quit0.png",
-	"frame": {"x":2,"y":994,"w":688,"h":90}
+	"frame": {"x":2,"y":1178,"w":688,"h":90},	
 },
 {
 	"filename": "quit1.png",
-	"frame": {"x":2,"y":1086,"w":688,"h":90}
+	"frame": {"x":2,"y":1270,"w":688,"h":90},	
 }]
