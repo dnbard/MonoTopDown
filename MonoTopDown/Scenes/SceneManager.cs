@@ -18,6 +18,11 @@ namespace MonoTopDown.Scenes
         private readonly Dictionary<string, BaseScene> _scenes = new Dictionary<string, BaseScene>();
         private readonly List<IGameComponent> _components = new List<IGameComponent>();
 
+        public static BaseScene CurrentScene
+        {
+            get { return Instance.ActiveScene; }
+        }
+        
         public BaseScene ActiveScene { protected set; get; }
         public int Count
         {
@@ -66,8 +71,12 @@ namespace MonoTopDown.Scenes
         {
             if (Instance.ActiveScene == null) return;
             Instance.game.GraphicsDevice.Clear(Color.Black);
-            
-            Instance.spriteBatch.Begin();
+
+            Instance.spriteBatch.Begin(SpriteSortMode.FrontToBack, 
+                BlendState.AlphaBlend, 
+                SamplerState.PointClamp,
+                null,
+                null);
 
             foreach (IDrawable component in Instance._components.OfType<IDrawable>())
                 component.Draw(time);

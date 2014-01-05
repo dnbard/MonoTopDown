@@ -1,0 +1,24 @@
+[{
+	"filename": "banner2_02.png",
+	"frame": {"x":2,"y":2,"w":688,"h":96},	
+},
+{
+	"filename": "banner2_03.png",
+	"frame": {"x":2,"y":100,"w":688,"h":90},	
+},
+{
+	"filename": "banner_01.png",
+	"frame": {"x":2,"y":192,"w":688,"h":232},	
+},
+{
+	"filename": "banner_02.png",
+	"frame": {"x":2,"y":426,"w":688,"h":96},	
+},
+{
+	"filename": "banner_03.png",
+	"frame": {"x":2,"y":524,"w":688,"h":90},	
+},
+{
+	"filename": "banner_04.png",
+	"frame": {"x":2,"y":616,"w":688,"h":560},	
+}]

@@ -23,6 +23,7 @@ namespace MonoTopDown
         private GraphicsDeviceManager graphics;
         public static SpriteBatch SpriteBatch { get; set; }
         private Settings settings = Settings.Load(Resources.Get("pathConfig"));
+        public Vector2 ViewportSize { get; private set; }
 
         public TopDownGame()
             : base()
@@ -30,6 +31,8 @@ namespace MonoTopDown
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
+            ViewportSize = new Vector2(settings.Width, settings.Height);
+            
             this.IsFixedTimeStep = true;
             graphics.PreferredBackBufferWidth = settings.Width;
             graphics.PreferredBackBufferHeight = settings.Height;
@@ -40,7 +43,8 @@ namespace MonoTopDown
         {
             base.Initialize();
 
-            SceneManager.Activate(new MenuScene());
+            //SceneManager.Activate(new MenuScene());
+            SceneManager.Activate(new LevelScene());
         }
 
         protected override void LoadContent()

@@ -45,7 +45,7 @@ namespace MonoTopDown.Scenes
                 logo.isVisible = false;
                 newGameButton.isVisible = false;
                 quitButton.isVisible = false;
-                AddWaiting();
+                //AddWaiting();
             };
         }
 

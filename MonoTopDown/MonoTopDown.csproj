@@ -35,14 +35,26 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Actors\Camera.cs" />
+    <Compile Include="Actors\Enums.cs" />
+    <Compile Include="Actors\ActorAnimation.cs" />
+    <Compile Include="Actors\BaseActor.cs" />
+    <Compile Include="Actors\Player.cs" />
+    <Compile Include="Collision\ActorEventHandler.cs" />
+    <Compile Include="Collision\BoundingBox.cs" />
+    <Compile Include="Collision\BoundingPoint.cs" />
+    <Compile Include="Collision\RectangleBoundingBox.cs" />
     <Compile Include="GUI\BaseGUIComponent.cs" />
     <Compile Include="GUI\GuiButton.cs" />
     <Compile Include="GUI\MouseCursor.cs" />
     <Compile Include="GUI\StaticBackground.cs" />
+    <Compile Include="Images\AnimationManager.cs" />
     <Compile Include="Images\DrawTexture.cs" />
     <Compile Include="Images\ImagesManager.cs" />
     <Compile Include="Model\ImageFrame.cs" />
     <Compile Include="Model\Utils\Settings.cs" />
+    <Compile Include="Scenery\BaseScenery.cs" />
+    <Compile Include="Scenes\LevelScene.cs" />
     <Compile Include="Scenes\MenuScene.cs" />
     <Compile Include="TopDownGame.cs" />
     <Compile Include="Program.cs" />
@@ -53,7 +65,9 @@
     <Compile Include="Utils\ImagesUtils.cs" />
     <Compile Include="Utils\JSON.cs" />
     <Compile Include="Utils\MouseManager.cs" />
+    <Compile Include="Utils\RectangleF.cs" />
     <Compile Include="Utils\Resources.cs" />
+    <Compile Include="Utils\SpriteBatchExtend.cs" />
     <Compile Include="Utils\Viewport.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -64,6 +78,7 @@
       <HintPath>..\packages\Newtonsoft.Json.5.0.8\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -75,7 +90,6 @@
     <None Include="Content\config.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Content\frames.json" />
     <None Include="Content\strings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
