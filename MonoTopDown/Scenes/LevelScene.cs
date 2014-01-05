@@ -33,7 +33,7 @@ namespace MonoTopDown.Scenes
             {
                 Texture = new DrawTexture(ImagesManager.GetTexture("tree0"))
                 {
-                    Scale = new Vector2(2, 2)
+                    Scale = new Vector2(4, 4)
                 },
                 Position = new Vector2(-100, 400),
             });

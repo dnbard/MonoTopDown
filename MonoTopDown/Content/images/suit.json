@@ -1,0 +1,63 @@
+[
+{
+	"filename": "right0",
+	"frame": {"x":0,"y":0,"w":35,"h":35}
+},{
+	"filename": "right1",
+	"frame": {"x":35,"y":0,"w":35,"h":35}
+},{
+	"filename": "right2",
+	"frame": {"x":70,"y":0,"w":35,"h":35}
+},{
+	"filename": "right3",
+	"frame": {"x":105,"y":0,"w":35,"h":35}
+},{
+	"filename": "right4",
+	"frame": {"x":140,"y":0,"w":35,"h":35}
+},{
+	"filename": "right5",
+	"frame": {"x":175,"y":0,"w":35,"h":35}
+},{
+	"filename": "right6",
+	"frame": {"x":210,"y":0,"w":35,"h":35}
+},{
+	"filename": "right7",
+	"frame": {"x":245,"y":0,"w":35,"h":35}
+},{
+	"filename": "left0",
+	"frame": {"x":0,"y":70,"w":35,"h":35}
+},{
+	"filename": "left1",
+	"frame": {"x":35,"y":70,"w":35,"h":35}
+},{
+	"filename": "left2",
+	"frame": {"x":70,"y":70,"w":35,"h":35}
+},{
+	"filename": "left3",
+	"frame": {"x":105,"y":70,"w":35,"h":35}
+},{
+	"filename": "left4",
+	"frame": {"x":140,"y":70,"w":35,"h":35}
+},{
+	"filename": "left5",
+	"frame": {"x":175,"y":70,"w":35,"h":35}
+},{
+	"filename": "left6",
+	"frame": {"x":210,"y":70,"w":35,"h":35}
+},{
+	"filename": "left7",
+	"frame": {"x":245,"y":70,"w":35,"h":35}
+},{
+	"filename": "waitright0",
+	"frame": {"x":0,"y":0,"w":35,"h":35}
+},{
+	"filename": "waitleft0",
+	"frame": {"x":0,"y":70,"w":35,"h":35}
+},{
+	"filename": "jumpright0",
+	"frame": {"x":0,"y":32,"w":16,"h":16}
+},{
+	"filename": "jumpleft0",
+	"frame": {"x":16,"y":32,"w":16,"h":16}
+}
+]

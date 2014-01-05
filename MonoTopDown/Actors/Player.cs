@@ -11,14 +11,14 @@ namespace MonoTopDown.Actors
 {
     class Player: BaseActor
     {
-        private static string name = "warrior"; 
+        private static string name = "suit"; 
 
         public Player() : base(name)
         {
             Position = new Vector2(400, 400);
 
-            Animations.Add("left", AnimationManager.Get(name, "left", 3));
-            Animations.Add("right", AnimationManager.Get(name, "right", 3));
+            Animations.Add("left", AnimationManager.Get(name, "left", 8));
+            Animations.Add("right", AnimationManager.Get(name, "right", 8));
             Animations.Add("waitright", AnimationManager.Get(name, "waitright", 1));
             Animations.Add("waitleft", AnimationManager.Get(name, "waitleft", 1));
             Animations.Add("jumpleft", AnimationManager.Get(name, "jumpleft", 1));
@@ -33,14 +33,14 @@ namespace MonoTopDown.Actors
             BoundingPoints.Add(new BoundingPoint()
             {
                 X = 4 * 4,
-                Y = 16 * 4 + 1,
+                Y = 35 * 4 + 1,
                 Intersection = new ActorEventHandler(target => target.ApplyGravity = false)
             });
 
             BoundingPoints.Add(new BoundingPoint()
             {
                 X = 12 * 4,
-                Y = 16 * 4 + 1,
+                Y = 35 * 4 + 1,
                 Intersection = new ActorEventHandler(target => target.ApplyGravity = false)
             });
 
