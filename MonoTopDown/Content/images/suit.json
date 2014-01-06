@@ -55,9 +55,27 @@
 	"frame": {"x":0,"y":70,"w":35,"h":35}
 },{
 	"filename": "jumpright0",
-	"frame": {"x":0,"y":32,"w":16,"h":16}
+	"frame": {"x":35,"y":35,"w":35,"h":35}
+},{
+	"filename": "jumpright1",
+	"frame": {"x":70,"y":35,"w":35,"h":35}
+},{
+	"filename": "jumpright2",
+	"frame": {"x":105,"y":35,"w":35,"h":35}
+},{
+	"filename": "jumpright3",
+	"frame": {"x":140,"y":35,"w":35,"h":35}
 },{
 	"filename": "jumpleft0",
-	"frame": {"x":16,"y":32,"w":16,"h":16}
+	"frame": {"x":0,"y":105,"w":35,"h":35}
+},{
+	"filename": "jumpleft1",
+	"frame": {"x":35,"y":105,"w":35,"h":35}
+},{
+	"filename": "jumpleft2",
+	"frame": {"x":70,"y":105,"w":35,"h":35}
+},{
+	"filename": "jumpleft3",
+	"frame": {"x":105,"y":105,"w":35,"h":35}
 }
 ]

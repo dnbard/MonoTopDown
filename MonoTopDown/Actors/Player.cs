@@ -21,8 +21,8 @@ namespace MonoTopDown.Actors
             Animations.Add("right", AnimationManager.Get(name, "right", 8));
             Animations.Add("waitright", AnimationManager.Get(name, "waitright", 1));
             Animations.Add("waitleft", AnimationManager.Get(name, "waitleft", 1));
-            Animations.Add("jumpleft", AnimationManager.Get(name, "jumpleft", 1));
-            Animations.Add("jumpright", AnimationManager.Get(name, "jumpright", 1));
+            Animations.Add("jumpleft", AnimationManager.Get(name, "jumpleft", 4, false));
+            Animations.Add("jumpright", AnimationManager.Get(name, "jumpright", 4, false));
 
             Direction = Direction.Right;
             CurrentAction = Actions.StandStill;
@@ -32,29 +32,29 @@ namespace MonoTopDown.Actors
 
             BoundingPoints.Add(new BoundingPoint()
             {
-                X = 4 * 4,
-                Y = 35 * 4 + 1,
+                X = 12 * 2,
+                Y = 35 * 2 + 1,
                 Intersection = new ActorEventHandler(target => target.ApplyGravity = false)
             });
 
             BoundingPoints.Add(new BoundingPoint()
             {
-                X = 12 * 4,
-                Y = 35 * 4 + 1,
+                X = 23 * 2,
+                Y = 35 * 2 + 1,
                 Intersection = new ActorEventHandler(target => target.ApplyGravity = false)
             });
 
             BoundingPoints.Add(new BoundingPoint()
             {
-                X = 15 * 4 + 1,
-                Y = 12 * 4,
+                X = 24 * 2 + 1,
+                Y = 12 * 2,
                 Intersection = new ActorEventHandler(target => target.CanMoveRight = false)
             });
 
             BoundingPoints.Add(new BoundingPoint()
             {
-                X = 2 * 4 - 1,
-                Y = 12 * 4,
+                X = 7 * 2 - 1,
+                Y = 12 * 2,
                 Intersection = new ActorEventHandler(target => target.CanMoveLeft = false)
             });
         }
@@ -74,8 +74,8 @@ namespace MonoTopDown.Actors
                         fallspeed = 12;
                         JumpsCount++;
                         SetJumpAnimation();
-                        JumpPower = 40;
-                        JumpPowerIncrement = 40;
+                        JumpPower = 25;
+                        JumpPowerIncrement = 25;
                         isAnimationUpdating = true;
                         jumpKey = true;
                     } 
@@ -94,7 +94,7 @@ namespace MonoTopDown.Actors
                 
                 if (Keyboard.GetState().IsKeyDown(Keys.Left))
                 {
-                    if (IsCurrentAnimationJump())
+                    if (!IsCurrentAnimationJump())
                         CurrentAnimation = Animations["left"];
                     isAnimationUpdating = true;
                     CurrentAction = Actions.MoveLeft;
@@ -102,7 +102,7 @@ namespace MonoTopDown.Actors
                 }
                 else if (Keyboard.GetState().IsKeyDown(Keys.Right))
                 {
-                    if (IsCurrentAnimationJump())
+                    if (!IsCurrentAnimationJump())
                         CurrentAnimation = Animations["right"];
                     isAnimationUpdating = true;
                     CurrentAction = Actions.MoveRight;

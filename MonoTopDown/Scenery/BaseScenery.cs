@@ -84,7 +84,7 @@ namespace MonoTopDown.Scenery
         {
             if (Texture != null && isVisible)
             {
-                //Texture.Draw(TopDownGame.SpriteBatch, Position - CameraPosition, Overlay, Layer);
+                Texture.Draw(TopDownGame.SpriteBatch, Position - CameraPosition, Overlay, Layer);
 
                 BoundingBox.Draw(gameTime, TopDownGame.SpriteBatch, CameraPosition);
             }

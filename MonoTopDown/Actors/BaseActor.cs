@@ -37,7 +37,7 @@ namespace MonoTopDown.Actors
         protected int Speed = 8;
 
         protected int JumpPower = 0;
-        protected int MaxJumpPower = 64;
+        protected int MaxJumpPower = 60;
         protected int JumpPowerIncrement = 0;
         protected bool jumpKey = false;
 
@@ -68,12 +68,13 @@ namespace MonoTopDown.Actors
 
         protected void SetJumpAnimation()
         {
-            CurrentAnimation = Direction == Direction.Left ? Animations["jumpleft"] : Animations["jumpright"];
+            if (!IsCurrentAnimationJump())
+                CurrentAnimation = Direction == Direction.Left ? Animations["jumpleft"] : Animations["jumpright"]; 
         }
 
         protected bool IsCurrentAnimationJump()
         {
-            return CurrentAnimation != null && (CurrentAnimation.Name != "jumpleft" || CurrentAnimation.Name != "jumpright");
+            return CurrentAnimation != null && (CurrentAnimation.Name == "jumpleft" || CurrentAnimation.Name == "jumpright");
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
@@ -165,6 +166,7 @@ namespace MonoTopDown.Actors
             {
                 JumpsCount = 0;
                 fallspeed = 12;
+                SetWaitAnimation();
             }
         }
 

@@ -10,7 +10,7 @@ namespace MonoTopDown.Images
     {
         static Dictionary<string, ActorAnimation> animations = new Dictionary<string, ActorAnimation>();
 
-        public static ActorAnimation Get(string textureName, string animation, int frames)
+        public static ActorAnimation Get(string textureName, string animation, int frames, bool continuous = true)
         {
             var anName = textureName + animation;
 
@@ -20,7 +20,7 @@ namespace MonoTopDown.Images
             }
             else
             {
-                var anEntity = new ActorAnimation(animation, frames, ImagesManager.GetTexture(textureName));
+                var anEntity = new ActorAnimation(animation, frames, ImagesManager.GetTexture(textureName), continuous);
                 animations.Add(anName, anEntity);
                 return anEntity;
             }

@@ -22,20 +22,20 @@ namespace MonoTopDown.Scenes
 
             Components.Add(new BaseScenery()
             {
-                Texture = new DrawTexture(ImagesManager.GetTexture("tree0"))
+                Texture = new DrawTexture(ImagesManager.GetTexture("platformtest"))
                 {
-                    Scale = new Vector2(4, 4)
+                    Scale = new Vector2(2, 2)
                 },
                 Position = new Vector2(600, 400),
             });
 
             Components.Add(new BaseScenery()
             {
-                Texture = new DrawTexture(ImagesManager.GetTexture("tree0"))
+                Texture = new DrawTexture(ImagesManager.GetTexture("platformtest"))
                 {
-                    Scale = new Vector2(4, 4)
+                    Scale = new Vector2(2, 2)
                 },
-                Position = new Vector2(-100, 400),
+                Position = new Vector2(100, 400),
             });
 
             /*Components.Add(new BaseGuiComponent()
@@ -49,9 +49,9 @@ namespace MonoTopDown.Scenes
 
             Components.Add(new BaseScenery()
                 {
-                    Texture = new DrawTexture(ImagesManager.GetTexture("box"))
+                    Texture = new DrawTexture(ImagesManager.GetTexture("platformtest"))
                     {
-                        Scale = new Vector2(4, 4)
+                        Scale = new Vector2(2,2)
                     },
                     Layer = 0.8f,
                     Position = new Vector2(400, 800)

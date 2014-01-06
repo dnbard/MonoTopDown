@@ -40,10 +40,13 @@ namespace MonoTopDown.Actors
             }
         }
 
-        public ActorAnimation(string _name, int frames, Texture2D texture)
+        private bool Continous = true;
+
+        public ActorAnimation(string _name, int frames, Texture2D texture, bool continous = true)
         {
             this.name = _name;
             this.framesCount = frames;
+            this.Continous = continous;
 
             textures = new Dictionary<string, DrawTexture>(frames);
 
@@ -51,7 +54,7 @@ namespace MonoTopDown.Actors
             {
                 var txName = name + i;
                 var tx = new DrawTexture(texture, txName);
-                tx.Scale = new Vector2(4, 4);
+                tx.Scale = new Vector2(2, 2);
                 textures.Add(txName, tx);
             }
         }
@@ -60,13 +63,16 @@ namespace MonoTopDown.Actors
         {
             if (Increment > 0)
             {
-                number++;
-                if (number == framesCount) number = 0;
+                if (!Continous && number < framesCount - 1 || Continous)
+                {
+                    number++;
+                    if (number == framesCount) number = 0;
+                }
             }
-            else
+            else 
             {
                 number--;
-                if (number < 0) number = framesCount - 1;
+                if (number < 0 && Continous) number = framesCount - 1;
             }
         }
 
