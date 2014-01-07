@@ -38,6 +38,15 @@ namespace MonoTopDown.Scenes
                 Position = new Vector2(100, 400),
             });
 
+            Components.Add(new BaseScenery()
+            {
+                Texture = new DrawTexture(ImagesManager.GetTexture("roomtest"))
+                {
+                    Scale = new Vector2(2, 2)
+                },
+                Position = new Vector2(500, 300),
+            });
+
             /*Components.Add(new BaseGuiComponent()
                 {
                     Texture = new DrawTexture(ImagesManager.GetTexture("back"))
